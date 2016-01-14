@@ -11,7 +11,9 @@ import java.util.Scanner;
  */
 public class Bins {
     public static final String DATA_FILE = "example.txt";
-
+    
+    //This is a test comment
+    
     /**
      * Reads list of integer data from the given input.
      *
