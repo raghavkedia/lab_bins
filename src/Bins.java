@@ -66,6 +66,16 @@ public class Bins {
         }
     }
     
+    public static void printStats(PriorityQueue<Disk> pq){
+    	System.out.println();
+        System.out.println("worst-fit decreasing method");
+        System.out.println("number of pq used: " + pq.size());
+        while (!pq.isEmpty()) {
+            System.out.println(pq.poll());
+        }
+        System.out.println();
+    }
+    
     /**
      * The main program.
      */
@@ -83,23 +93,11 @@ public class Bins {
         int total = worstFit(pq, data);
         
         System.out.println("total size = " + total / 1000000.0 + "GB");
-        System.out.println();
-        System.out.println("worst-fit method");
-        System.out.println("number of pq used: " + pq.size());
-        while (!pq.isEmpty()) {
-            System.out.println(pq.poll());
-        }
-        System.out.println();
+        printStats(pq);
 
         
         worstFitDecreasing(pq, data);
         
-        System.out.println();
-        System.out.println("worst-fit decreasing method");
-        System.out.println("number of pq used: " + pq.size());
-        while (!pq.isEmpty()) {
-            System.out.println(pq.poll());
-        }
-        System.out.println();
+        printStats(pq);
     }
 }
