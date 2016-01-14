@@ -27,6 +27,9 @@ What Code Smells can you find?
 1. "The Bloaters". The entire functinality of "Bins" is contained in the main method of the bins.java file.
  
 What suggestions does this code make about how someone would extend it in the future to compare the performance of a wider variety of fitting algorithms?
+They would add to the main method another variation of the algorithm that would potentially do something with Disk, then add
+that the contents of that list to the priority queue, then print out information about the end result of the algorithm.
+This would follow the pattern established above. 
 
 
 What dependencies are there between different parts of the code?
