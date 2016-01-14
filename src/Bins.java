@@ -10,7 +10,7 @@ import java.util.Scanner;
  * Runs a number of algorithms that try to fit files onto disks.
  */
 public class Bins {
-    public static final String DATA_FILE = "example.txt";
+    public static final String DATA_FILE = "princeton.txt";
     
     //This is a test comment
     //This is a test comment2 - Frank Wang    
