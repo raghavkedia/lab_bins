@@ -32,6 +32,7 @@ public class Bins {
      * The main program.
      */
     public static void main (String args[]) {
+    	System.out.println("This is Austin's edit");
         Bins b = new Bins();
         Scanner input = new Scanner(Bins.class.getClassLoader().getResourceAsStream(DATA_FILE));
         List<Integer> data = b.readData(input);
