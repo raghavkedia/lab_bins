@@ -1,8 +1,12 @@
 What pieces of code help versus obscure your understanding of the algorithm?
-
+Helps: Print lines that show what data is being printed
+Obscure: the entire code is in the main function so it's hard to tell what the sequence and overall functionality of the program is doing
 
 What comments might be helpful within the code?
+Steps, different heuristics (i.e. when the code is doing the in-order versus decreasing-order algorithms), describing conditions for if statements
+
 Are there places where the code could be more concise and also more clear?
+Yes, the print statements are repetitive, the two heuristics are carried out in the same function when they should be separated
 
 Testability
 How would you test this code for bugs?
