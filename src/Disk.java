@@ -14,9 +14,7 @@ public class Disk implements Comparable<Disk> {
      * Create an empty Disk.
      */
     public Disk () {
-        mySize = 0;
-        myCapacity = 1000000;
-        myFiles = new ArrayList<Integer>();
+    	this(0);
     }
 
     /**

@@ -48,7 +48,7 @@ public class Bins {
     	
     public static void worstFitDecreasing(PriorityQueue<Disk> pq, List<Integer> data){
     	Collections.sort(data, Collections.reverseOrder());
-        pq.add(new Disk(0));
+        pq.add(new Disk());
     	
     	int diskId = 1;
         for (Integer size : data) {
