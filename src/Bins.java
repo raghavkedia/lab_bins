@@ -13,7 +13,7 @@ public class Bins {
     public static final String DATA_FILE = "example.txt";
     
     //This is a test comment
-    
+    //This is a test comment2 - Frank Wang    
     /**
      * Reads list of integer data from the given input.
      *
