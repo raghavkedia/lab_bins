@@ -14,10 +14,13 @@ Run it on different text files and see if it works. Run it on test files with ve
 the answer from the program with something done by hand.
 
 Give a specific example of a "test case" as the code is currently written.
-
+The test case is the example.txt file, which is coded into the Bins.java file already.
 
 What additional functions may be helpful?
+A consistent print function, a function that reverse orders the list of numbers 
+
 Give a specific example of a "test case" for your new function.
+We just use the same data
 
 Extensibility
 What Code Smells can you find?
@@ -27,11 +30,11 @@ What suggestions does this code make about how someone would extend it in the fu
 
 
 What dependencies are there between different parts of the code?
-
+Bins depends on Disk as it creates instances of Disk. Several functions depending on data 
 
 How easy to find are those dependencies?
-
+It's not super easy to find.
 
 Can you clarify or remove those dependencies?
-
+Yes, pass data through functions and reuse them to reduce dependencies.
 
