@@ -10,7 +10,7 @@ import java.util.Scanner;
  * Runs a number of algorithms that try to fit files onto disks.
  */
 public class Bins {
-    public static final String DATA_FILE = "example.txt";
+    public static final String DATA_FILE = "princeton.txt";
     
     /**
      * Reads list of integer data from the given input.
@@ -27,7 +27,8 @@ public class Bins {
     }
     
     public static int worstFit(PriorityQueue<Disk> pq, List<Integer> data){
-        int diskId = 1;
+    	pq.add(new Disk(0));
+    	int diskId = 1;
         int total = 0;
         for (Integer size : data) {
             Disk d = pq.peek();
@@ -46,55 +47,37 @@ public class Bins {
         return total;
     }
     	
-    public static void worstFitDecreasing(PriorityQueue<Disk> pq, List<Integer> data){
+    public static int worstFitDecreasing(PriorityQueue<Disk> pq, List<Integer> data){
+    	pq.add(new Disk(0));
     	Collections.sort(data, Collections.reverseOrder());
-        pq.add(new Disk(0));
-    	
-    	int diskId = 1;
-        for (Integer size : data) {
-            Disk d = pq.peek();
-            if (d.freeSpace() >= size) {
-                pq.poll();
-                d.add(size);
-                pq.add(d);
-            } else {
-                Disk d2 = new Disk(diskId);
-                diskId++;
-                d2.add(size);
-                pq.add(d2);
-            }
-        }
+    	return worstFit(pq,data);
     }
     
-    public static void printStats(PriorityQueue<Disk> pq){
-    	System.out.println();
-        System.out.println("worst-fit decreasing method");
-        System.out.println("number of pq used: " + pq.size());
+    public static void printStats(PriorityQueue<Disk> pq, int total){        
+    	System.out.println("total size = " + total / 1000000.0 + "GB");
+    	System.out.println("number of pq used: " + pq.size());
         while (!pq.isEmpty()) {
             System.out.println(pq.poll());
         }
-        System.out.println();
+        
     }
     
     /**
      * The main program.
      */
     public static void main (String args[]) {
-    	System.out.println("This is Austin's edit");
         Bins b = new Bins();
         Scanner input = new Scanner(Bins.class.getClassLoader().getResourceAsStream(DATA_FILE));
         List<Integer> data = b.readData(input);
 
         PriorityQueue<Disk> pq = new PriorityQueue<Disk>();
-        pq.add(new Disk(0));
         
+        System.out.println("worst-fit in-order method");
         int total = worstFit(pq, data);
-        
-        System.out.println("total size = " + total / 1000000.0 + "GB");
-        printStats(pq);
-
-        worstFitDecreasing(pq, data);
-        
-        printStats(pq);
+        printStats(pq, total);
+                
+        System.out.println("worst-fit decreasing method");
+        total = worstFitDecreasing(pq, data);
+        printStats(pq, total);
     }
 }
