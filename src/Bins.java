@@ -87,15 +87,12 @@ public class Bins {
 
         PriorityQueue<Disk> pq = new PriorityQueue<Disk>();
         pq.add(new Disk(0));
-
-
         
         int total = worstFit(pq, data);
         
         System.out.println("total size = " + total / 1000000.0 + "GB");
         printStats(pq);
 
-        
         worstFitDecreasing(pq, data);
         
         printStats(pq);
