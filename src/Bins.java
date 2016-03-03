@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Scanner;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * Runs a number of algorithms that try to fit files onto disks.
@@ -62,6 +64,11 @@ public class Bins {
         
     }
     
+    public static void fitDisksinBins(List<Integer> myList, Function<List<Integer>, List<Integer>> myFunction){
+    	List<Integer> newList = myFunction.apply(myList);
+    	newList.forEach(e -> System.out.println(e));
+    }
+    
     /**
      * The main program.
      */
@@ -70,12 +77,14 @@ public class Bins {
         Scanner input = new Scanner(Bins.class.getClassLoader().getResourceAsStream(DATA_FILE));
         List<Integer> data = b.readData(input);
 
+        fitDisksinBins(data, (f) -> f.stream().sorted().collect(Collectors.toList()));
+        
         PriorityQueue<Disk> pq = new PriorityQueue<Disk>();
         
         System.out.println("worst-fit in-order method");
         int total = worstFit(pq, data);
         printStats(pq, total);
-                
+        
         System.out.println("worst-fit decreasing method");
         total = worstFitDecreasing(pq, data);
         printStats(pq, total);
